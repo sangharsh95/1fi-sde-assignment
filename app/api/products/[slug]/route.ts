@@ -28,6 +28,6 @@ export async function GET(
 
     return NextResponse.json(product)
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch product' }, { status: 500 })
+    return NextResponse.json({ error: 'Failed to fetch product', details: error instanceof Error ? error.message : String(error) }, { status: 500 })
   }
 }
